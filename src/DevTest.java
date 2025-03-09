@@ -15,6 +15,14 @@ public class DevTest {
         // Test getDouble
         double userDouble = SafeInput.getDouble(scanner, "Enter any double");
         System.out.println("You entered: " + userDouble);
+
+        // Test getRangedInt
+        int rangedInt = SafeInput.getRangedInt(scanner, "Enter an integer", 1, 10);
+        System.out.println("You entered: " + rangedInt);
+
+        // Test getRangedDouble
+        double rangedDouble = SafeInput.getRangedDouble(scanner, "Enter a double", 0.5, 10.0);
+        System.out.println("You entered: " + rangedDouble);
     }
 }
 

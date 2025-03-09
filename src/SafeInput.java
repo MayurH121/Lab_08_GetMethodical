@@ -62,4 +62,62 @@ public class SafeInput {
         } while (!isValid);
         return retDouble;
     }
+
+    /**
+     * Prompts the user to input an integer within a specified inclusive range.
+     *
+     * @param pipe   a Scanner opened to read from System.in
+     * @param prompt the message to display as the prompt for the input
+     * @param low    the low value for the input range
+     * @param high   the high value for the input range
+     * @return a valid integer within the specified range
+     */
+    public static int getRangedInt(Scanner pipe, String prompt, int low, int high) {
+        int retInt = 0;
+        boolean isValid = false;
+        do {
+            System.out.print("\n" + prompt + " [" + low + " - " + high + "]: ");
+            if (pipe.hasNextInt()) {
+                retInt = pipe.nextInt();
+                if (retInt >= low && retInt <= high) {
+                    isValid = true;
+                } else {
+                    System.out.println("Input out of range. Please try again.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter an integer.");
+            }
+            pipe.nextLine();
+        } while (!isValid);
+        return retInt;
+    }
+
+    /**
+     * Prompts the user to input a double value within a specified inclusive range.
+     *
+     * @param pipe   a Scanner opened to read from System.in
+     * @param prompt the message to display as the prompt for the input
+     * @param low    the low value for the input range
+     * @param high   the high value for the input range
+     * @return a valid double within the specified range
+     */
+    public static double getRangedDouble(Scanner pipe, String prompt, double low, double high) {
+        double retDouble = 0;
+        boolean isValid = false;
+        do {
+            System.out.print("\n" + prompt + " [" + low + " - " + high + "]: ");
+            if (pipe.hasNextDouble()) {
+                retDouble = pipe.nextDouble();
+                if (retDouble >= low && retDouble <= high) {
+                    isValid = true;
+                } else {
+                    System.out.println("Input out of range. Please try again.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a double.");
+            }
+            pipe.nextLine();
+        } while (!isValid);
+        return retDouble;
+    }
 }
