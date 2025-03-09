@@ -120,4 +120,49 @@ public class SafeInput {
         } while (!isValid);
         return retDouble;
     }
+
+    /**
+     * Prompts the user to input a Yes or No response and ensures the input is valid.
+     *
+     * @param pipe   a Scanner opened to read from System.in
+     * @param prompt the message to display as the prompt for the input
+     * @return true for "Y" or "y", false for "N" or "n"
+     */
+    public static boolean getYNConfirm(Scanner pipe, String prompt) {
+        String input;
+        boolean isValid = false;
+        do {
+            System.out.print("\n" + prompt + " [Y/N]: ");
+            input = pipe.nextLine().toUpperCase();
+            if (input.equals("Y") || input.equals("N")) {
+                isValid = true;
+            } else {
+                System.out.println("Invalid input. Please enter Y or N.");
+            }
+        } while (!isValid);
+        return input.equals("Y");
+    }
+
+    /**
+     * Prompts the user to input a String that matches a specified RegEx pattern.
+     *
+     * @param pipe   a Scanner opened to read from System.in
+     * @param prompt the message to display as the prompt for the input
+     * @param regEx  the RegEx pattern to match
+     * @return a String that matches the specified RegEx pattern
+     */
+    public static String getRegExString(Scanner pipe, String prompt, String regEx) {
+        String input;
+        boolean isValid = false;
+        do {
+            System.out.print("\n" + prompt + ": ");
+            input = pipe.nextLine();
+            if (input.matches(regEx)) {
+                isValid = true;
+            } else {
+                System.out.println("Invalid input. Please try again.");
+            }
+        } while (!isValid);
+        return input;
+    }
 }

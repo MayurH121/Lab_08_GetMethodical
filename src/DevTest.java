@@ -23,6 +23,14 @@ public class DevTest {
         // Test getRangedDouble
         double rangedDouble = SafeInput.getRangedDouble(scanner, "Enter a double", 0.5, 10.0);
         System.out.println("You entered: " + rangedDouble);
+
+        // Test getYNConfirm
+        boolean confirm = SafeInput.getYNConfirm(scanner, "Do you road rage?");
+        System.out.println("You entered: " + (confirm ? "Yes" : "No"));
+
+        // Test getRegExString
+         String phoneNumber = SafeInput.getRegExString(scanner, "Enter your phone number (###-###-####)", "^\\d{3}-\\d{3}-\\d{4}$");
+        System.out.println("Your phone number is: " + phoneNumber);
     }
 }
 
