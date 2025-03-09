@@ -165,4 +165,42 @@ public class SafeInput {
         } while (!isValid);
         return input;
     }
+
+    /**
+     * Displays a pretty header with a centered message.
+     *
+     * @param msg the message to display in the header
+     */
+    public static void prettyHeader(String msg) {
+        int totalWidth = 60;
+        int msgLength = msg.length();
+        int padding = (totalWidth - msgLength - 6) / 2; // 6 accounts for the 3 stars on each side
+
+        for (int i = 0; i < totalWidth; i++) // Print the top row of stars
+        {
+            System.out.print("*");
+        }
+        System.out.println();
+
+        System.out.print("***"); // Print the middle row with the centered message
+        for (int i = 0; i < padding; i++) {
+            System.out.print(" ");
+        }
+        System.out.print(msg);
+        for (int i = 0; i < padding; i++) {
+            System.out.print(" ");
+        }
+
+        if ((totalWidth - msgLength - 6) % 2 != 0) // Adjust for odd lengths
+        {
+            System.out.print(" ");
+        }
+        System.out.println("***");
+
+        for (int i = 0; i < totalWidth; i++)  // Print the bottom row of stars
+        {
+            System.out.print("*");
+        }
+        System.out.println();
+    }
 }
